@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  python_calculator:
+    build:
+      context: ./pythoncalculator
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./results:/app/results
+    networks:
+      - calc_network
+
+networks:
+  calc_network:
+    driver: bridge
+
